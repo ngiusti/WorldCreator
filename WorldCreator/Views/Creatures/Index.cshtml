@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WorldCreator.Models.Creature>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatureName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hitpoints)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Speed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Information)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatureName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hitpoints)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Speed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Information)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CreatureID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CreatureID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CreatureID })
+        </td>
+    </tr>
+}
+
+</table>
